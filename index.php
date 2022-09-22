@@ -12,17 +12,24 @@
 </head>
 <body>
     <header class="top">
-        <div>
+        <div id="title">
             <p>GlobalWeatherMap</p>
             <img src="https://cdn-icons-png.flaticon.com/512/44/44748.png">
         </div>
     </header>
+
+    <div class="link">
+        <img src="https://i.pinimg.com/originals/0f/61/ba/0f61ba72e0e12ba59d30a50295964871.png">
+        <a href="https://www.google.es/maps/@0.3175443,-13.0737815,3z">Google Maps</a>
+    </div>
+
     <div class="data">Ingrese datos Geográficos</div>
     <div class="form">
         <input type="text" placeholder="Latitud" class="info" id="la">
         <input type="text" placeholder="Longitud" class="info" id="lon">
         <input type="button" onclick="weather()" value="Enviar">
     </div>
+    <div class="location"></div>
     <div class="days">
         <input type="button" value="Lunes" id="d1">
         <input type="button" value="Martes" id="d2">
@@ -33,6 +40,6 @@
         <input type="button" value="Domingo" id="d0">        
     </div>
     <div class="mainCont" id="mainCont"></div>
-    <p class="none">No se registraron datos</p>
+    <div class="none"><p>No se registraron datos este día</p></div>
 </body>
 </html>

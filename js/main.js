@@ -4,13 +4,13 @@ function weather(){
     let dia;
 
     $.ajax({
-        url: 'https://api.openweathermap.org/data/2.5/forecast?lat=34.93011110800733&lon=-57.54643436237738&appid=2be41a993eaf59fb2c6d4e960c4a2e5f&units=metric&lang=sp',
+        url: 'https://api.openweathermap.org/data/2.5/forecast?lat='+latitud+'&lon='+longitud+'&appid=2be41a993eaf59fb2c6d4e960c4a2e5f&units=metric&lang=sp',
         dataType: 'json',
 
         success: function(datos){
             console.log(datos);
             $('#mainCont').html('');
-
+            $('.location').html(''+datos['city']['name']+'('+datos['city']['country']+')')
             for(i=0; i<datos['list'].length; i++){
                 display = 'none';
                 dia = new Date(datos['list'][i]['dt_txt']).getDay();
@@ -23,11 +23,27 @@ function weather(){
             for(j=0; j<7; j++){
                 $('#d'+j).attr('onclick', 'day('+j+','+new Date().getDay()+')');
             }
+        },
+
+        error: function(){
+            $('.data').html('No se encontró lugar Geográfico');
+            setTimeout(function(){
+                $('.data').html('Ingrese datos Geográficos');
+            }, 3000)
         }
     })
 }
 
 function day(newDay, currentDay){
+    $('.none').attr('style', 'display: none');
+    if(newDay == currentDay){
+        return;    
+    }
+
+    else if($('.'+newDay).children().val() == undefined){
+        $('.none').attr('style', 'display: flex');
+    }
+
     $('.'+newDay).children().attr('style', 'display: flex');
     for(j=0; j<7; j++){
         $('#d'+j).attr('onclick', 'day('+j+','+newDay+')');
