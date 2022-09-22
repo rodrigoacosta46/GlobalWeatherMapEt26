@@ -28,10 +28,10 @@ function weather(){
 }
 
 function day(newDay, currentDay){
-    $('.'+newDay+'.dayCont').attr('style', 'display: flex');
+    $('.'+newDay).children().attr('style', 'display: flex');
     for(j=0; j<7; j++){
         $('#d'+j).attr('onclick', 'day('+j+','+newDay+')');
     }
-    $('.'+currentDay+'.dayCont').attr('style', 'display: none');
+    $('.'+currentDay).children().attr('style', 'display: none');
 }
     
