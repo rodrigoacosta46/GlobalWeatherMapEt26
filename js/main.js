@@ -19,6 +19,7 @@ function weather(){
                     }
                 document.getElementById('mainCont').innerHTML += "<div class='"+dia+"'><div style='display:"+display+"'class='dayCont'><p>"+new Date(datos['list'][i]['dt_txt']).getHours()+':00'+"</p><div class='dayInf'><div class='row'>&#128167; Humedad "+datos["list"][i]["main"]["humidity"]+"%</div></div><div class='dayInf'><div class='row'><img src='https://cdn-icons-png.flaticon.com/512/3161/3161249.png'>Temperatura "+datos['list'][i]['main']['temp']+"°</div></div><div class='dayInf'><div class='row'><img src='https://cdn-icons-png.flaticon.com/512/4005/4005925.png'> Presion "+datos['list'][i]['main']['pressure']+"hPa</div></div><div class='dayInf'><div class='row'><img src='http://openweathermap.org/img/wn/"+datos['list'][i]['weather'][0]['icon']+".png'> "+datos['list'][i]['weather'][0]['description']+"</div></div></div></div";
             }
+            $('#d'+new Date().getDay()).attr('style', 'background-color: yellow');
             
             for(j=0; j<7; j++){
                 $('#d'+j).attr('onclick', 'day('+j+','+new Date().getDay()+')');
@@ -43,6 +44,9 @@ function day(newDay, currentDay){
     else if($('.'+newDay).children().val() == undefined){
         $('.none').attr('style', 'display: flex');
     }
+
+    $('#d'+currentDay).attr('style', 'background-color: white');
+    $('#d'+newDay).attr('style', 'background-color: yellow');
 
     $('.'+newDay).children().attr('style', 'display: flex');
     for(j=0; j<7; j++){
