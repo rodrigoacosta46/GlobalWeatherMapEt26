@@ -10,7 +10,7 @@ function loading(which){
         if(which == 'map'){
             map();    
         }
-    },4000);
+    },0000);
 }
 
 function map(){
@@ -71,6 +71,7 @@ function placeInf(urlInf){
             for(j=0; j<7; j++){
                 $('#d'+j).attr('onclick', 'day('+j+','+fecha.getDay()+')');
             }
+
             fechas[fecha.getDay()] = fecha;
             console.log(fechas);
 
@@ -84,22 +85,30 @@ function placeInf(urlInf){
 }
 
 function day(newDay, currentDay){
+
     $('.none').attr('style', 'display: none');
 
     if($('.'+newDay).children().val() == undefined){
+        $('#d'+newDay).css('background-color', '#d84f4f');
+        setTimeout(function(){
+            $('#d'+newDay).css('background-color', 'rgb(2, 10, 32)');
+        },1000);
+        $('.'+currentDay).children().attr('style', 'display: none');
         $('.none').attr('style', 'display: flex');
+        $('.dates').html('');
+        return;
     }
 
     
     $('.'+currentDay).children().attr('style', 'display: none');
     $('.'+newDay).children().attr('style', 'display: flex');
 
+    $('#d'+currentDay).css('background-color', 'rgb(2, 10, 32)');
+    $('#d'+newDay).css('background-color', 'rgb(11, 37, 140)');
+
     $('.dates').attr('style', 'display: flex');
     month = fechas[newDay].getMonth() + 1;
     $('.dates').html(fechas[newDay].getFullYear()+'-'+month+'-'+fechas[newDay].getDate());
-    
-    $('#d'+currentDay).css('background-color', 'rgb(2, 10, 32)');
-    $('#d'+newDay).css('background-color', 'rgb(11, 37, 140)');
     
     for(j=0; j<7; j++){
         $('#d'+j).attr('onclick', 'day('+j+','+newDay+')');
