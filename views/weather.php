@@ -1,4 +1,3 @@
-
 <div class="days">
     <div class="buttons">
         <input type="button" value="Lunes" id="d1">
@@ -10,7 +9,7 @@
         <input type="button" value="Domingo" id="d0">
     </div>
     <div class="mainSec">
-        <div class=".dates" id="dates"></div>
+        <p class="dates"></p>
         <div class="mainCont" id="mainCont"></div>
         <div class="none"><p>No se registraron datos este día</p></div>        
     </div>

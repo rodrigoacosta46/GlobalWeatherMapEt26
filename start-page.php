@@ -18,11 +18,24 @@
         </div>
     </header>
 
+    <div class="loading" style="display: none;">
+        <img src="https://acegif.com/wp-content/uploads/loading-11.gif">
+        <p>Cargando página...</p>
+    </div>
+
 <?php 
-    if($_GET['sec'] == 'cty'){
-        require 'views/city.php';
+    switch($_GET['sec']){
+        case 'cty':
+            require 'views/city.php';
+            break;
+
+        case 'we':
+            require 'views/weather.php';
+            break;
+
+        case 'mp':
+            require 'views/map.php';
+            break;
     }
-    else if($_GET['sec'] == 'we'){
-        require 'views/weather.php';
-    }
+    
 ?>

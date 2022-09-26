@@ -7,13 +7,35 @@ body{
     overflow-y: hidden;
 }
 
+.loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: darkgray;
+}
+
+.loading img{
+    width: 200px;
+    height: 200px;
+}
+
+.loading p{
+    margin: 0px;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 15px;
+    position: fixed;
 }
 
 ::-webkit-scrollbar-thumb{
     border-radius: 20px;
-    background-color: lightblue;
+    display: none;
 }
 
 .top{
@@ -44,13 +66,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 30px;
     position: absolute;
     bottom:10px;
 }
 
 .link a{
-    font-size: 30px;
+    font-size: 200%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: rgb(236, 43, 43);
@@ -61,7 +82,7 @@ body{
 }
 
 .initial-cont{
-    margin-top: 100px;
+    margin-top: 10%;
     padding: 10px;
 }
 
@@ -91,6 +112,7 @@ input.info{
 .form{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 25px;
 }
 
@@ -104,14 +126,12 @@ input.info{
 
 .dates{
     display: flex;
-    justify-content: space-evenly;
-    background-color: silver;
-}
-
-.dates p{
-    margin: 0px 30px;
+    justify-content: center;
     width: 100%;
-    border: solid 5px white;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: azure;
+    margin: 20px 0px 0px;
 }
 
 .days{
@@ -119,7 +139,6 @@ input.info{
     flex-direction: column;
     margin: 50px auto;
     background-color: rgb(2, 10, 32);
-    overflow-y: scroll;
     max-width: 70%;
     min-width: 70%;
     height: 500px;
@@ -129,7 +148,6 @@ input.info{
 
 .days .buttons{
     display: flex;
-    justify-content: space-between;
     border-bottom: solid rgb(198, 185, 185) 1px;
     width: 100%;
 }
@@ -139,8 +157,14 @@ input.info{
     font-size: 25px;
     padding: 20px;
     width: 100%;
-    background-color: rgb(2, 10, 32);
-    color: rgb(59, 58, 58);;
+    background-color:rgb(2, 10, 32);
+    color: rgb(59, 58, 58);
+    transition: all ease-out 0.3s;
+}
+
+.mainSec{
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .mainCont{
@@ -211,10 +235,12 @@ input.info{
 
 ::-webkit-scrollbar-thumb:hover{
     background-color: rgb(55, 55, 55);
+    display: block;
 }
 
 .buttons input:hover{
-    background-color: lightblue;
+    color: rgb(213, 213, 41);
+    transition: all ease-in 0.3s;
 }
 
 input.info:focus::placeholder{
