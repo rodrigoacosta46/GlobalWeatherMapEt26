@@ -1,3 +1,4 @@
+<div class="location"></div>
 <div class="days">
     <div class="buttons">
         <input type="button" value="Lunes" id="d1">

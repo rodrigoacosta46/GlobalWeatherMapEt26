@@ -10,7 +10,7 @@ function loading(which){
         if(which == 'map'){
             map();    
         }
-    },0000);
+    },3000);
 }
 
 function map(){
@@ -56,8 +56,9 @@ function placeInf(urlInf){
         success: function(datos){
             console.log(datos);
             $('#d'+fecha.getDay()).attr('value', 'Hoy');
+            $('#d'+fecha.getDay()).attr('style', 'color: rgb(204, 223, 57);');
             $('#d'+fecha.getDay()).css('background-color', 'rgb(11, 37, 140)');
-            //$('.location').html(''+datos['city']['name']+'('+datos['city']['country']+')')
+            $('.location').html(''+datos['city']['name']+'('+datos['city']['country']+')')
             for(i=0; i<datos['list'].length; i++){
                 display = 'none';
                 dia = new Date(datos['list'][i]['dt_txt']);
@@ -73,7 +74,6 @@ function placeInf(urlInf){
             }
 
             fechas[fecha.getDay()] = fecha;
-            console.log(fechas);
 
             year = fechas[fecha.getDay()].getFullYear();
             month = fechas[fecha.getDay()].getMonth() + 1;
